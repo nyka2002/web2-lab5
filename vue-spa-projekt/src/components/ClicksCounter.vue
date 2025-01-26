@@ -1,37 +1,28 @@
 <template>
-    <div>
-      <button @click="incrementCounter">Klikni me</button>
-      <p>Broj klikova: {{ counter }}</p>
-      <p>Kvadrat broja klikova: {{ squaredCounter }}</p>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        counter: 0,
-      };
-    },
-    computed: {
-      squaredCounter() {
-        return this.counter * this.counter;
-      },
-    },
-    methods: {
-      incrementCounter() {
-        this.counter++;
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
-  button {
-    background-color: #42b983;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  </style>
+  <div>
+    <button @click="counterStore.increment">click the button!</button>
+    <p>clicks count: {{ counterStore.counter }}</p>
+    <p>clicks count squared: {{ counterStore.squaredCounter }}</p>
+  </div>
+</template>
+
+<script>
+import { useCounterStore } from "../store/counterStore";
+
+export default {
+  setup() {
+    const counterStore = useCounterStore()
+    return { counterStore }
+  },
+};
+</script>
+
+<style scoped>
+button {
+  background-color: #FF5733;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+</style>

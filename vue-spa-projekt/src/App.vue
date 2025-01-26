@@ -6,6 +6,8 @@
 
     <router-view></router-view>
 
+    <MessageBox :message="appMessage" @update-message="updateAppMessage"></MessageBox>
+
     <ClicksCounter></ClicksCounter>
 
     <p>interpolation/one-way binding: {{ message }}</p>
@@ -14,40 +16,32 @@
 
     <input type="text" v-model="userInput" placeholder="type anything!" />
     <p>you entered: {{ userInput }}</p>
-
-    <button @click="incrementCounter">click the button!</button>
-    <p>clicks count: {{ counter }}</p>
-
-    <p>clicks count squared: {{ squaredCounter }}</p>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue"
 import ClicksCounter from "./components/ClicksCounter.vue"
+import MessageBox from "./components/MessageBox.vue";
 
 export default {
   components: {
     NavBar,
     ClicksCounter,
+    MessageBox,
   },
   data() {
     return {
       message: "this is an example of one-way binding!",
       tooltip: "this is an example of two-way binding!",
       userInput: "",
-      counter: 0,
+      appMessage: "first message shown on page",
     };
   },
-  computed: {
-    squaredCounter() {
-      return this.counter * this.counter;
-    },
-  },
   methods: {
-    incrementCounter() {
-      this.counter++;
-    },
+    updateAppMessage(newMessage) {
+      this.appMessage = newMessage;
+    }
   },
   mounted() {
     console.log("component ready!");

@@ -12,7 +12,7 @@
   nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #42b983;
+    color: #FFC300;
     font-weight: bold;
   }
   </style>
