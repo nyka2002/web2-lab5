@@ -10,6 +10,8 @@
 
     <ClicksCounter></ClicksCounter>
 
+    <LoadPosts></LoadPosts>
+
     <p>interpolation/one-way binding: {{ message }}</p>
 
     <p v-bind:title="tooltip">hover over this text!</p>
@@ -23,12 +25,14 @@
 import NavBar from "./components/NavBar.vue"
 import ClicksCounter from "./components/ClicksCounter.vue"
 import MessageBox from "./components/MessageBox.vue";
+import LoadPosts from "./components/LoadPosts.vue";
 
 export default {
   components: {
     NavBar,
     ClicksCounter,
     MessageBox,
+    LoadPosts,
   },
   data() {
     return {
@@ -54,7 +58,7 @@ export default {
 
 <style scoped>
 h1 {
-  color: #900C3F;
+  color: #c43240;
 }
 nav {
   margin-bottom: 20px;

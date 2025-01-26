@@ -19,7 +19,7 @@
   
   <style scoped>
   button {
-    background-color: #FF5733;
+    background-color: #be1e2d;
     color: white;
     border: none;
     padding: 10px;
