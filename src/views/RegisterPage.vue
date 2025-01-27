@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h2>Registracija</h2>
+      <h2>register</h2>
       <input v-model="email" type="email" placeholder="email" />
       <input v-model="password" type="password" placeholder="password" />
       <button @click="register">register</button>
