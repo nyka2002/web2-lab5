@@ -48,6 +48,9 @@ export default {
     };
   },
   methods: {
+    incrementCounter() {
+      this.counter++;
+    },
     updateAppMessage(newMessage) {
       this.appMessage = newMessage;
     }
