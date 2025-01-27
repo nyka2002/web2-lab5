@@ -8,6 +8,31 @@
     </nav>
   </template>
   
+<script>
+import { auth } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+
+export default {
+  data() {
+    return {
+      user: null,
+    };
+  },
+  created() {
+    onAuthStateChanged(auth, (user) => {
+      this.user = user;
+    });
+  },
+  methods: {
+    async logout() {
+      await signOut(auth);
+      this.user = null;
+      this.$router.push("/login");
+    },
+  },
+};
+</script>
+
   <style scoped>
   nav {
     margin-bottom: 20px;
@@ -18,4 +43,11 @@
     color: #72bad5;
     font-weight: bold;
   }
+button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
   </style>
