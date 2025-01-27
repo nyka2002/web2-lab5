@@ -18,6 +18,10 @@
 
     <input type="text" v-model="userInput" placeholder="type anything!" />
     <p>you entered: {{ userInput }}</p>
+    
+    <button @click="incrementCounter">button clicker v2</button>
+    <p>number of clicks of the second button: {{ counter }}</p>
+    <p>second button clicks cubed: {{ cubedCounter }}</p>
   </div>
 </template>
 
@@ -40,12 +44,18 @@ export default {
       tooltip: "this is an example of two-way binding!",
       userInput: "",
       appMessage: "first message shown on page",
+      counter: 0,
     };
   },
   methods: {
     updateAppMessage(newMessage) {
       this.appMessage = newMessage;
     }
+  },
+  computed: {
+    cubedCounter() {
+      return this.counter * this.counter * this.counter;
+    },
   },
   mounted() {
     console.log("component ready!");
